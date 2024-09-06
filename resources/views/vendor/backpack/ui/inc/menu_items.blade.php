@@ -3,8 +3,8 @@
 @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item')
 
 
-<x-backpack::menu-item title="Users" icon="la la-question" :link="backpack_url('user')" />
-<x-backpack::menu-item title="Countries" icon="la la-question" :link="backpack_url('country')" />
+<x-backpack::menu-item title="Users" icon="la la-users" :link="backpack_url('user')" />
+<!-- <x-backpack::menu-item title="Countries" icon="la la-question" :link="backpack_url('country')" />
 <x-backpack::menu-item title="Funtions" icon="la la-question" :link="backpack_url('funtion')" />
 <x-backpack::menu-item title="Themes" icon="la la-question" :link="backpack_url('theme')" />
-<x-backpack::menu-item title="Series" icon="la la-question" :link="backpack_url('serie')" />
+<x-backpack::menu-item title="Series" icon="la la-question" :link="backpack_url('serie')" /> -->

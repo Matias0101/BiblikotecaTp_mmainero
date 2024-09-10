@@ -23,14 +23,14 @@
         <li>
             <x-backpack::menu-item title="Countries" icon="la la-globe" :link="backpack_url('country')" />
         </li>
-        <!--<li>
-            <x-backpack::menu-item title="Functions" icon="la la-cogs" :link="backpack_url('function')" />
+        <li>
+        <x-backpack::menu-item title="Positions" icon="la la-cogs" :link="backpack_url('position')" />
         </li>
         <li>
             <x-backpack::menu-item title="Themes" icon="la la-paint-brush" :link="backpack_url('theme')" />
         </li>
         <li>
             <x-backpack::menu-item title="Series" icon="la la-film" :link="backpack_url('serie')" />
-        </li>-->
+        </li>
     </ul>
 </li>

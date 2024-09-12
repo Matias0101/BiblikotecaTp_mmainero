@@ -19,6 +19,20 @@ Route::group([
     Route::crud('user', 'UserCrudController');
     Route::crud('country', 'CountryCrudController');
     Route::crud('position', 'PositionCrudController');
+    Route::crud('author', 'AuthorCrudController');
+    Route::crud('publisher', 'PublisherCrudController');
+    Route::crud('book-author', 'BookAuthorCrudController');
+    Route::crud('book', 'BookCrudController');
+    Route::crud('subject', 'SubjectCrudController');
+    Route::crud('book-subject', 'BookSubjectCrudController');
+    Route::crud('book-publisher', 'BookPublisherCrudController');
+    Route::crud('member', 'MemberCrudController');
+    Route::crud('book-loans', 'BookLoansCrudController');
+    Route::crud('loan-configuration', 'LoanConfigurationCrudController');
+    Route::crud('serie', 'SerieCrudController');
+    Route::crud('book-serie', 'BookSerieCrudController');
+    Route::crud('edition', 'EditionCrudController');
+    Route::crud('book-edition', 'BookEditionCrudController');
 }); // this should be the absolute last line of this file
 
 /**

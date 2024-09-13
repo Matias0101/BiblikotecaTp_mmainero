@@ -28,7 +28,7 @@ class BookCrudController extends CrudController
     {
         CRUD::setModel(\App\Models\Book::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/book');
-        CRUD::setEntityNameStrings('book', 'books');
+        CRUD::setEntityNameStrings('libro', 'libros');
     }
 
     /**
@@ -45,6 +45,27 @@ class BookCrudController extends CrudController
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
          */
+        // Columnas en inglés en la base de datos, pero se muestran en español
+        CRUD::column('type')->label('Tipo');
+        CRUD::column('signature2')->label('signature 2');
+        CRUD::column('title')->label('Título');
+        CRUD::column('pages')->label('Paginas');
+        CRUD::column('features')->label('Caracteristicas');
+        CRUD::column('place_of_edition')->label('Lugar de edición');
+        CRUD::column('edition_info')->label('Edición');
+        CRUD::column('dimensions')->label('Dimensiones');
+        CRUD::column('year')->label('Año');
+        CRUD::column('isbn')->label('ISBN');
+        CRUD::column('format')->label('Formato');
+        CRUD::column('language')->label('Idioma');
+        CRUD::column('note')->label('Nota');
+        CRUD::column('inventory')->label('inventario');
+        CRUD::column('origin')->label('Origen');
+        CRUD::column('other_authors')->label('Otros autores');
+        CRUD::column('image')->label('Imagen');
+        CRUD::column('location')->label('Ubicación');
+        CRUD::column('additional_info')->label('Contiene');
+        CRUD::column('published_at')->label('Fecha de Publicación');
     }
 
     /**
@@ -72,6 +93,10 @@ class BookCrudController extends CrudController
      */
     protected function setupUpdateOperation()
     {
-        $this->setupCreateOperation();
+        //$this->setupCreateOperation();
+        // Campos en inglés en la base de datos, pero se muestran en español
+        CRUD::field('title')->label('Título');
+        CRUD::field('isbn')->label('ISBN');
+        CRUD::field('published_at')->label('Fecha de Publicación');
     }
 }

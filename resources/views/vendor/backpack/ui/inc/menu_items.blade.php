@@ -20,36 +20,39 @@
     </a>
     <ul class="dropdown-menu" aria-labelledby="parametricasDropdown">
         <li>
-            <x-backpack::menu-item title="Users" icon="la la-users" :link="backpack_url('user')" />
+            <x-backpack::menu-item title="Usuarios" icon="la la-users" :link="backpack_url('user')" />
         </li>
         <li>
-            <x-backpack::menu-item title="Countries" icon="la la-globe" :link="backpack_url('country')" />
+            <x-backpack::menu-item title="países" icon="la la-globe" :link="backpack_url('country')" />
         </li>
         <li>
-            <x-backpack::menu-item title="Positions" icon="la la-cogs" :link="backpack_url('position')" />
+            <x-backpack::menu-item title="Funciones" icon="la la-cogs" :link="backpack_url('position')" />
         </li>
         <li>
             <!-- <x-backpack::menu-item title="Themes" icon="la la-paint-brush" :link="backpack_url('theme')" /> -->
-            <x-backpack::menu-item title="Subjects" icon="la la-paint-brush" :link="backpack_url('subject')" />
+            <x-backpack::menu-item title="Temas" icon="la la-paint-brush" :link="backpack_url('subject')" />
         </li>
         <li>
             <x-backpack::menu-item title="Series" icon="la la-film" :link="backpack_url('serie')" />
         </li>
         <li>
-            <x-backpack::menu-item title="Authors" icon="la la-pen-alt" :link="backpack_url('author')" />
+            <x-backpack::menu-item title="Autores" icon="la la-pen-alt" :link="backpack_url('author')" />
         </li>
         <li>
-            <x-backpack::menu-item title="Publishers" icon="la la-building" :link="backpack_url('publisher')" />
+            <x-backpack::menu-item title="Editoriales" icon="la la-building" :link="backpack_url('publisher')" />
         </li>
 
         <li>
-            <x-backpack::menu-item title="Books" icon="la la-book" :link="backpack_url('book')" />
+            <x-backpack::menu-item title="Libros" icon="la la-book" :link="backpack_url('book')" />
         </li>
-        <li><x-backpack::menu-item title="Members" icon="la la-users" :link="backpack_url('member')" /></li>
-        <li><x-backpack::menu-item title="Book loans" icon="la la-book" :link="backpack_url('book-loans')" /></li>
-        <li><x-backpack::menu-item title="Loan configurations" icon="la la-cogs" :link="backpack_url('loan-configuration')" /></li>
-        <li><x-backpack::menu-item title="Series" icon="la la-list" :link="backpack_url('serie')" /></li>
-        <li><x-backpack::menu-item title="Editions" icon="la la-calendar" :link="backpack_url('edition')" /></li>
+        <li><x-backpack::menu-item title="Miembros" icon="la la-users" :link="backpack_url('member')" /></li>
+
+        <li><x-backpack::menu-item title="Prestamos de Libros" icon="la la-book" :link="backpack_url('book-loans')" /></li>
+
+        <!-- <li><x-backpack::menu-item title="Loan configurations" icon="la la-cogs" :link="backpack_url('loan-configuration')" /></li> -->
+        <!-- <li><x-backpack::menu-item title="Series" icon="la la-list" :link="backpack_url('serie')" /></li> -->
+         
+        <li><x-backpack::menu-item title="Ediciones" icon="la la-calendar" :link="backpack_url('edition')" /></li>
     </ul>
 </li>
 

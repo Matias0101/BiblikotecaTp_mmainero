@@ -22,6 +22,9 @@ class Author extends Model
         'last_name',
         'birthdate',
         'country_id',
+        'created_by',  // Añadi estos campos al fillable
+        'updated_by',
+
     ];
 
     /**
@@ -39,4 +42,25 @@ class Author extends Model
     {
         return $this->belongsTo(Country::class);
     }
+
+    // Relación con el usuario que creó el registro
+    public function creator(): BelongsTo
+    {
+
+
+        return $this->belongsTo(User::class, 'created_by');
+    }
+
+
+
+    // Relación con el usuario que actualizó el registro
+
+
+    public function updater(): BelongsTo
+    {
+
+
+        return $this->belongsTo(User::class, 'updated_by');
+    }
+
 }

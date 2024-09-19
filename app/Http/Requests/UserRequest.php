@@ -24,9 +24,31 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+
         return [
-            // 'name' => 'required|min:5|max:255'
+            'name' => 'required|string|max:255',
+            //'email' => 'required|string|email|max:255|unique:users,email,'.($this->user ? $this->user->id : 'NULL'),
+            'password' => 'required|string|min:8|confirmed',
+            //'role' => 'required|in:admin,read_only', // Enum values
+            'departament' => 'nullable|string|max:100',
+            'internal' => 'nullable|string|max:20',
+            'cellphone' => 'nullable|string|max:20',
+            'note' => 'nullable|string',
+            'alternate_email' => 'nullable|email|max:100',
         ];
+        if (backpack_user()->role != 'admin') {
+            // El usuario de solo lectura no puede cambiar el rol
+            unset($rules['role']);
+        } else {
+            $rules['role'] = 'required|in:admin,read_only';
+        }
+        if ($user->role != 'read_only' || $user->id != $this->route('user')) {
+            // Solo validamos el email si el usuario no es 'read_only' o si está editando su propio perfil
+            $rules['email'] = 'required|string|email|max:255|unique:users,email,' . $this->user;
+        }
+    
+        return $rules;
+
     }
 
     /**

@@ -22,6 +22,14 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        //'first_name',
+        //'last_name',
+        'role',
+        'departament',
+        'internal',
+        'cellphone',
+        'note',
+        'alternate_email',
     ];
 
     /**
@@ -45,5 +53,9 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    public function bookLoans()
+    {
+        return $this->hasMany(BookLoans::class);
     }
 }

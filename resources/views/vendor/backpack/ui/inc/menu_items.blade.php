@@ -45,7 +45,7 @@
         <li>
             <x-backpack::menu-item title="Libros" icon="la la-book" :link="backpack_url('book')" />
         </li>
-        <li><x-backpack::menu-item title="Miembros" icon="la la-users" :link="backpack_url('member')" /></li>
+        <!-- <li><x-backpack::menu-item title="Miembros" icon="la la-users" :link="backpack_url('member')" /></li> -->
 
         <li><x-backpack::menu-item title="Prestamos de Libros" icon="la la-book" :link="backpack_url('book-loans')" /></li>
 

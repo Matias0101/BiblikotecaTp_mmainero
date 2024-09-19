@@ -41,6 +41,13 @@ class BookLoansCrudController extends CrudController
     {
         CRUD::setFromDb(); // set columns from db columns.
 
+        CRUD::addColumn([
+            'name' => 'user.name', // Relación con el nombre del usuario
+            'type' => 'text',
+            'label' => 'User',
+        ]);
+        
+
         /**
          * Columns can be defined using the fluent syntax:
          * - CRUD::column('price')->type('number');
@@ -57,6 +64,17 @@ class BookLoansCrudController extends CrudController
     {
         CRUD::setValidation(BookLoansRequest::class);
         CRUD::setFromDb(); // set fields from db columns.
+
+        CRUD::addField([
+            'name' => 'user_id',
+            'type' => 'select',
+            'entity' => 'user', // Relación con el modelo User
+            'model' => 'App\Models\User',
+            'attribute' => 'name', // El atributo que querés mostrar en el select
+            //'validation' => 'required',  // Asegura que el campo es obligatorio
+            'label' => 'User',
+        ]);
+        
 
         /**
          * Fields can be defined using the fluent syntax:

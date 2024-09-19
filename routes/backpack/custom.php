@@ -26,7 +26,7 @@ Route::group([
     Route::crud('subject', 'SubjectCrudController');
     Route::crud('book-subject', 'BookSubjectCrudController');
     Route::crud('book-publisher', 'BookPublisherCrudController');
-    Route::crud('member', 'MemberCrudController');
+    //Route::crud('member', 'MemberCrudController');eliminado
     Route::crud('book-loans', 'BookLoansCrudController');
     Route::crud('loan-configuration', 'LoanConfigurationCrudController');
     Route::crud('serie', 'SerieCrudController');

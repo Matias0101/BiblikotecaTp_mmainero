@@ -18,7 +18,7 @@ class BookLoans extends Model
      * @var array
      */
     protected $fillable = [
-        'member_id',
+        'user_id',
         'book_id',
         'loan_date',
         'return_date',
@@ -32,16 +32,16 @@ class BookLoans extends Model
      */
     protected $casts = [
         'id' => 'integer',
-        'member_id' => 'integer',
+        'user_id' => 'integer',
         'book_id' => 'integer',
         'loan_date' => 'date',
         'return_date' => 'date',
         'renewal_date' => 'date',
     ];
 
-    public function member(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(Member::class);
+        return $this->belongsTo(User::class);
     }
 
     public function book(): BelongsTo

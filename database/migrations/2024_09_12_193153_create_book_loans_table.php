@@ -36,11 +36,11 @@ return new class extends Migration
 
         Schema::create('book_loans', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('member_id')->constrained();
-            $table->foreignId('book_id')->constrained();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade'); // Relación con users
+            $table->foreignId('book_id')->constrained()->onDelete('cascade'); // Relación con books
             $table->date('loan_date');
-            $table->date('return_date');
-            $table->date('renewal_date');
+            $table->date('return_date')->nullable();;
+            $table->date('renewal_date')->nullable();;
             $table->timestamps();
         });
 

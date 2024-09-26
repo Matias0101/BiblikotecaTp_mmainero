@@ -53,6 +53,11 @@
         <!-- <li><x-backpack::menu-item title="Series" icon="la la-list" :link="backpack_url('serie')" /></li> -->
          
         <li><x-backpack::menu-item title="Ediciones" icon="la la-calendar" :link="backpack_url('edition')" /></li>
+
+        <li>
+        <x-backpack::menu-item title="Translation Manager" icon="la la-language" :link="backpack_url('translation-manager')" />
+
+        </li>
     </ul>
 </li>
 
@@ -71,3 +76,7 @@
 <!-- <x-backpack::menu-item title="Book series" icon="la la-question" :link="backpack_url('book-serie')" /> -->
 
 <!-- <x-backpack::menu-item title="Book editions" icon="la la-question" :link="backpack_url('book-edition')" /> -->
+<x-backpack::menu-item title="Translation Manager" icon="la la-language" :link='backpack_url('translation-manager')" />
+<x-backpack::menu-item title="Add-ons" icon="la la-plug" :link="backpack_url('addons')" />
+<x-backpack::menu-item title="Páginas" icon="la la-file" :link="backpack_url('page')" />
+

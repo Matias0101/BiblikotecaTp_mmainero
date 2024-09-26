@@ -370,7 +370,7 @@ return [
         // "so_KE" => "Somali (Kenya)",
         // "so_SO" => "Somali (Somalia)",
         // "so" => "Somali",
-        // "es_AR" => "Spanish (Argentina)",
+         "es_AR" => "Spanish (Argentina)",
         // "es_BO" => "Spanish (Bolivia)",
         // "es_CL" => "Spanish (Chile)",
         // "es_CO" => "Spanish (Colombia)",

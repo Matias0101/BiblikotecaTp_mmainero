@@ -7,7 +7,9 @@
     "require": {
         "php": "^8.2",
         "backpack/crud": "^6.7",
+        "backpack/pro": "^2.0",
         "backpack/theme-tabler": "^1.2",
+        "backpack/translation-manager": "^1.0",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9"
     },

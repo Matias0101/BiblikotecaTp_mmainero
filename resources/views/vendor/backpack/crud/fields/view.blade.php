@@ -4,6 +4,14 @@
 <div class="form-group col-md-12">
     <label>{!! $field['label'] !!}</label>
     <div>
-        <p class="form-control-static">{!! $field['value'] !!}</p>
+     
+        @if (isset($field['value']) && $field['value'] !== null)
+            <p class="form-control-static">{!! $field['value'] !!}</p>
+        @else
+            <p class="form-control-static">No disponible</p>
+        @endif
+
     </div>
 </div>
+
+  

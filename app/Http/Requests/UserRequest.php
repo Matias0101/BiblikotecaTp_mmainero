@@ -13,8 +13,12 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        // only allow updates if the user is logged in
-        return backpack_auth()->check();
+        // Solo permite si el usuario está logueado
+        //return backpack_auth()->check();
+
+        // Solo permite si el usuario está logueado y autorizado a editar este recurso
+        return backpack_auth()->check() && $this->userIsAuthorizedToEdit();
+
     }
 
     /**
@@ -88,6 +92,14 @@ class UserRequest extends FormRequest
         //return $rules;
 
     }
+    private function userIsAuthorizedToEdit()
+    {
+        // Lógica personalizada para comprobar si el usuario tiene permiso para editar.
+        // Por ejemplo, basándote en roles o en algún permiso específico.
+        // Puedes adaptar esta lógica a tus necesidades.
+        return backpack_user()->role == 'admin'; // Solo los administradores pueden editar
+    }
+
 
     /**
      * Get the validation attributes that apply to the request.

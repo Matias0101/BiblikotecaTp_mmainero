@@ -45,6 +45,11 @@ class CheckIfAdmin
             return redirect()->guest(backpack_url('login'));
         }
     }
+    public function terminate($request, $response)
+    {
+        \Log::debug('Session terminate for user: ' . backpack_user()->id);
+    }
+
 
     /**
      * Handle an incoming request.
@@ -56,10 +61,12 @@ class CheckIfAdmin
     public function handle($request, Closure $next)
     {
         if (backpack_auth()->guest()) {
+            \Log::info('Usuario detectado como no autenticado en CheckIfAdmin');
             return $this->respondToUnauthorizedRequest($request);
         }
 
-        if (! $this->checkIfUserIsAdmin(backpack_user())) {
+        if (!$this->checkIfUserIsAdmin(backpack_user())) {
+            \Log::info('Usuario no es admin en CheckIfAdmin');
             return $this->respondToUnauthorizedRequest($request);
         }
 

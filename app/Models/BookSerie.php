@@ -40,6 +40,6 @@ class BookSerie extends Model
 
     public function serie(): BelongsTo
     {
-        return $this->belongsTo(Series::class);
+        return $this->belongsTo(Serie::class);
     }
 }

@@ -96,7 +96,7 @@ class UserRequest extends FormRequest
     {
         // Lógica personalizada para comprobar si el usuario tiene permiso para editar.
         // Por ejemplo, basándote en roles o en algún permiso específico.
-        // Puedes adaptar esta lógica a tus necesidades.
+       
         return backpack_user()->role == 'admin'; // Solo los administradores pueden editar
     }
 

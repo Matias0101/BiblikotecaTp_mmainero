@@ -62,6 +62,11 @@
 </li>
 
 
+<x-backpack::menu-dropdown title="Administración" icon="la la-shield">
+    <x-backpack::menu-dropdown-item title="Usuarios" icon="la la-user" :link="backpack_url('user')" />
+    <x-backpack::menu-dropdown-item title="Roles" icon="la la-group" :link="backpack_url('role')" />
+    <x-backpack::menu-dropdown-item title="Permisos" icon="la la-key" :link="backpack_url('permission')" />
+</x-backpack::menu-dropdown>
 
 
 

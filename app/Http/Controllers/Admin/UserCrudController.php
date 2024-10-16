@@ -31,6 +31,17 @@ class UserCrudController extends CrudController
         CRUD::setRoute(config('backpack.base.route_prefix') . '/user');
         CRUD::setEntityNameStrings('Usuario', 'Usuarios');
 
+         // Verificar el rol del usuario autenticado
+         if (backpack_user()->hasRole('read_only')) {
+            // Si el usuario tiene el rol de solo lectura, denegar acceso a crear, editar y eliminar
+            $this->crud->denyAccess(['create', 'update', 'delete']);
+        }
+        
+        // Si es admin, permitir todas las acciones
+        if (backpack_user()->hasRole('admin')) {
+            $this->crud->allowAccess(['create', 'update', 'delete']);
+        }
+
         // Aquí verificamos si el usuario es 'admin' o 'read_only'
         // if (backpack_user()->role == 'read_only') {
         //     $this->crud->denyAccess(['create', 'delete']);

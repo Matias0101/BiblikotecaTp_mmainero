@@ -32,13 +32,13 @@ class UserCrudController extends CrudController
         CRUD::setEntityNameStrings('Usuario', 'Usuarios');
 
         // Aquí verificamos si el usuario es 'admin' o 'read_only'
-        if (backpack_user()->role == 'read_only') {
-            $this->crud->denyAccess(['create', 'delete']);
-            // Permite que solo pueda editar su propio perfil
-            $this->crud->addClause('where', 'id', '=', backpack_user()->id);
-        } else if (backpack_user()->role == 'admin') {
-            $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
-        }
+        // if (backpack_user()->role == 'read_only') {
+        //     $this->crud->denyAccess(['create', 'delete']);
+        //     // Permite que solo pueda editar su propio perfil
+        //     $this->crud->addClause('where', 'id', '=', backpack_user()->id);
+        // } else if (backpack_user()->role == 'admin') {
+        //     $this->crud->allowAccess(['list', 'create', 'update', 'delete']);
+        // }
     }
 
     /**
@@ -71,14 +71,14 @@ class UserCrudController extends CrudController
         //     'type' => 'password',
         // ]);
 
-        CRUD::addColumn([
-            'name' => 'role',
-            'label' => 'Rol', // Cambiado a español
-            'type' => 'select_from_array',
-            'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
-            'allows_null' => false,
-            'default' => 'read_only', // Valor por defecto
-        ]);
+        // CRUD::addColumn([
+        //     'name' => 'role',
+        //     'label' => 'Rol', // Cambiado a español
+        //     'type' => 'select_from_array',
+        //     'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
+        //     'allows_null' => false,
+        //     'default' => 'read_only', // Valor por defecto
+        // ]);
 
         CRUD::addColumn([
             'name' => 'departament',
@@ -164,14 +164,14 @@ class UserCrudController extends CrudController
             ],
         ]);
 
-        CRUD::addField([
-            'name' => 'role',
-            'label' => 'Rol',
-            'type' => 'select_from_array',
-            'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
-            'allows_null' => false,
-            'default' => 'read_only', // Valor por defecto
-        ]);
+        // CRUD::addField([
+        //     'name' => 'role',
+        //     'label' => 'Rol',
+        //     'type' => 'select_from_array',
+        //     'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
+        //     'allows_null' => false,
+        //     'default' => 'read_only', // Valor por defecto
+        // ]);
 
         // Para la contraseña, aseguramos que siempre esté vacía en la creación
         $this->crud->addField([
@@ -266,39 +266,39 @@ class UserCrudController extends CrudController
         $user = backpack_user(); // Obtenemos el usuario logueado actual.
 
         // Si el usuario logueado es read_only y está editando su propio perfil, mostramos los campos como solo lectura.
-        if ($user->role == 'read_only' && $user->id == CRUD::getCurrentEntry()->id) {
+        // if ($user->role == 'read_only' && $user->id == CRUD::getCurrentEntry()->id) {
 
-            CRUD::addField([
-                'name' => 'email',
-                'label' => 'Correo Electrónico',
-                'type' => 'view',  // Solo visualización
-                'value' => CRUD::getCurrentEntry()->email, // Valor actual del correo electrónico
-            ]);
-            CRUD::addField([
-                'name' => 'role',
-                'label' => 'Rol',
-                'type' => 'view',  // Solo visualización
-                'value' => ucfirst(CRUD::getCurrentEntry()->role),  // Mostramos el rol actual
-            ]);
-        } else {
-            // Si es admin, permitimos editar el correo y el rol.
-            CRUD::addField([
-                'name' => 'email',
-                'label' => 'Correo Electrónico',
-                'type' => 'email',
-                'attributes' => [
-                    'placeholder' => 'usuario@jus.gob.ar', // Placeholder
-                ],
-            ]);
-            CRUD::addField([
-                'name' => 'role',
-                'label' => 'Rol',
-                'type' => 'select_from_array',
-                'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
-                'allows_null' => false,
-                'default' => CRUD::getCurrentEntry()->role, // Valor actual del rol
-            ]);
-        }
+        //     CRUD::addField([
+        //         'name' => 'email',
+        //         'label' => 'Correo Electrónico',
+        //         'type' => 'view',  // Solo visualización
+        //         'value' => CRUD::getCurrentEntry()->email, // Valor actual del correo electrónico
+        //     ]);
+        //     CRUD::addField([
+        //         'name' => 'role',
+        //         'label' => 'Rol',
+        //         'type' => 'view',  // Solo visualización
+        //         'value' => ucfirst(CRUD::getCurrentEntry()->role),  // Mostramos el rol actual
+        //     ]);
+        // } else {
+        //     // Si es admin, permitimos editar el correo y el rol.
+        //     CRUD::addField([
+        //         'name' => 'email',
+        //         'label' => 'Correo Electrónico',
+        //         'type' => 'email',
+        //         'attributes' => [
+        //             'placeholder' => 'usuario@jus.gob.ar', // Placeholder
+        //         ],
+        //     ]);
+        //     CRUD::addField([
+        //         'name' => 'role',
+        //         'label' => 'Rol',
+        //         'type' => 'select_from_array',
+        //         'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
+        //         'allows_null' => false,
+        //         'default' => CRUD::getCurrentEntry()->role, // Valor actual del rol
+        //     ]);
+        //}
 
         // Otros campos comunes para todos.
         CRUD::addField([
@@ -368,7 +368,7 @@ class UserCrudController extends CrudController
             'cellphone',
             'note',
             'alternate_email',
-            'role'
+            //'role'
         ]);
 
         // Solo encripta y actualiza la contraseña si fue cambiada y no está vacía
@@ -389,15 +389,7 @@ class UserCrudController extends CrudController
         // Actualizar el usuario en la base de datos
         $this->crud->update($id, $data);
 
-        // Si el usuario está editando su propio perfil (es admin o read_only)
-        if (backpack_user()->id == $id) {
-            // Volvemos a cargar el usuario autenticado desde la base de datos para garantizar que los cambios se reflejen
-            $user = \App\Models\User::find($id);
-            Auth::login($user);  // Re-autentica al usuario para evitar el logout
-            // $user = backpack_user();
-            // Auth::login($user);  // Re-autentica al usuario para evitar el logout
-
-        }
+       
         // Determina la acción de guardado seleccionada
         $saveAction = $this->crud->getRequest()->input('_save_action', 'save_and_back');
 
@@ -431,7 +423,7 @@ class UserCrudController extends CrudController
             'email.required' => 'El correo electrónico es obligatorio.',
             'password.required' => 'La contraseña es obligatoria.',
             'password.confirmed' => 'Las contraseñas no coinciden.',
-            'role.required' => 'El rol es obligatorio.',
+            //'role.required' => 'El rol es obligatorio.',
         ];
     }
     protected function setupShowOperation()
@@ -448,14 +440,14 @@ class UserCrudController extends CrudController
         ]);
 
 
-        CRUD::addColumn([
-            'name' => 'role',
-            'label' => 'Rol', // Cambiado a español
-            'type' => 'select_from_array',
-            'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
-            'allows_null' => false,
-            'default' => 'read_only', // Valor por defecto
-        ]);
+        // CRUD::addColumn([
+        //     'name' => 'role',
+        //     'label' => 'Rol', // Cambiado a español
+        //     'type' => 'select_from_array',
+        //     'options' => ['admin' => 'Admin', 'read_only' => 'Solo Lectura'],
+        //     'allows_null' => false,
+        //     'default' => 'read_only', // Valor por defecto
+        // ]);
 
         CRUD::addColumn([
             'name' => 'departament',

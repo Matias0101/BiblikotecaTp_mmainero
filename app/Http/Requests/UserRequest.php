@@ -14,10 +14,10 @@ class UserRequest extends FormRequest
     public function authorize()
     {
         // Solo permite si el usuario está logueado
-        //return backpack_auth()->check();
+        return backpack_auth()->check();
 
         // Solo permite si el usuario está logueado y autorizado a editar este recurso
-        return backpack_auth()->check() && $this->userIsAuthorizedToEdit();
+        //return backpack_auth()->check() && $this->userIsAuthorizedToEdit();
 
     }
 
@@ -85,7 +85,7 @@ class UserRequest extends FormRequest
             'note' => 'nullable|string',
             'alternate_email' => 'nullable|email|max:100',
             // Solo los administradores pueden cambiar el rol
-            'role' => backpack_user()->role == 'admin' ? 'required|in:admin,read_only' : 'sometimes',
+           // 'role' => backpack_user()->role == 'admin' ? 'required|in:admin,read_only' : 'sometimes',
         ];
 
 
@@ -97,7 +97,7 @@ class UserRequest extends FormRequest
         // Lógica personalizada para comprobar si el usuario tiene permiso para editar.
         // Por ejemplo, basándote en roles o en algún permiso específico.
        
-        return backpack_user()->role == 'admin'; // Solo los administradores pueden editar
+        //return backpack_user()->role == 'admin'; // Solo los administradores pueden editar
     }
 
 

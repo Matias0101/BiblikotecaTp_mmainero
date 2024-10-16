@@ -40,8 +40,8 @@ return new class extends Migration {
             $table->string('password');
 
             // Nombres y campos relacionados
-            $table->string('first_name', 60)->nullable();
-            $table->string('last_name', 60)->nullable();
+            // $table->string('first_name', 60)->nullable();
+            // $table->string('last_name', 60)->nullable();
 
             // Campos opcionales
             $table->string('departament', 100)->nullable();// Repartición
@@ -53,7 +53,7 @@ return new class extends Migration {
             $table->string('alternate_email', 100)->nullable();
 
             // Nuevo campo: Role (admin o solo lectura)
-            $table->enum('role', ['admin', 'read_only'])->default('read_only');
+           //$table->enum('role', ['admin', 'read_only'])->default('read_only');
 
                  // Tokens y timestamps
 

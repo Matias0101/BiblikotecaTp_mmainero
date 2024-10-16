@@ -21,7 +21,8 @@ class CheckRole
     public function handle(Request $request, Closure $next, $role)
     {
         // Verifica si el usuario está autenticado y tiene el rol adecuado
-        if (!Auth::check() || Auth::user()->role !== $role) {
+        //if (!Auth::check() || Auth::user()->role !== $role) {
+            if (!Auth::check()) {
             // Redirigir o mostrar un mensaje de error si no tiene el rol correcto
             return redirect('/unauthorized');
         }

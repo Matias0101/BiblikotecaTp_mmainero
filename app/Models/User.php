@@ -24,7 +24,7 @@ class User extends Authenticatable
         'password',
         //'first_name',
         //'last_name',
-        'role',
+        //'role',
         'departament',
         'internal',
         'cellphone',

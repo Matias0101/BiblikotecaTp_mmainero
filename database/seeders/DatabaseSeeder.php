@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         // Llamar al seeder de roles y permisos antes de crear el usuario, para asegurarse de que los roles estén disponibles
-        $this->call(RolesAndPermissionsSeeder::class);
+       // $this->call(RolesAndPermissionsSeeder::class);
 
         // Verificar si ya existe un usuario con este correo
         $existingUser = User::where('email', 'admin@gmail.com')->first();

@@ -63,7 +63,7 @@ return [
     'home_link' => '',
 
     // Menu logo. You can replace this with an <img> tag if you have a logo.
-    'project_logo' => '<b>Back</b>pack',
+    'project_logo' => '<b>Biblioteca</b>  <br>  Salvat',
 
     // Show / hide breadcrumbs on admin panel pages.
     'breadcrumbs' => true,
@@ -73,7 +73,7 @@ return [
     // ------
 
     // Developer or company name. Shown in footer.
-    'developer_name' => 'Matias',
+    'developer_name' => 'Matias Mainero',
 
     // Developer website. Link in footer. Type false if you want to hide it.
     'developer_link' => 'http://tabacitu.ro',

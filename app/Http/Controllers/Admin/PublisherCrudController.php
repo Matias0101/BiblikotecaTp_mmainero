@@ -56,12 +56,19 @@ class PublisherCrudController extends CrudController
     protected function setupCreateOperation()
     {
         CRUD::setValidation(PublisherRequest::class);
-        CRUD::setFromDb(); // set fields from db columns.
-
-        /**
-         * Fields can be defined using the fluent syntax:
-         * - CRUD::field('price')->type('number');
-         */
+        //CRUD::setFromDb(); // set fields from db columns.// trae por defecto lo de la base de datos
+ 
+         // Campo de nombre
+         CRUD::field('name')->label('Name')->type('text');
+ 
+         // Campo de país como select
+         CRUD::field('country_id')->label('Country')->type('select')
+             ->entity('country') // relación en el modelo
+             ->model(\App\Models\Country::class) // modelo de destino
+             ->attribute('name'); // columna que queremos mostrar en el dropdown
+ 
+         // También puedes añadir otros campos si es necesario, en lugar de usar `CRUD::setFromDb()`
+ 
     }
 
     /**

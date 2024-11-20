@@ -36,4 +36,8 @@ class Publisher extends Model
     {
         return $this->belongsTo(Country::class);
     }
+    public function books()
+    {
+        return $this->belongsToMany(Book::class, 'book_publishers');
+    }
 }

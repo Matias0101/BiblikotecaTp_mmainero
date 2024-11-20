@@ -53,8 +53,27 @@ class Book extends Model
      /**
      * Relación con el modelo Publisher
      */
-    public function publisher(): BelongsTo
+   // public function publisher(): BelongsTo
+    //{
+        //return $this->belongsTo(Publisher::class, 'publisher_id');
+    //}
+     // public function publisher(): BelongsTo
+    // {
+    //     return $this->belongsTo(Publisher::class, 'publisher_id');
+    // }
+    public function country()
     {
-        return $this->belongsTo(Publisher::class, 'publisher_id');
+        return $this->belongsTo(Country::class);
+    }
+
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class, 'book_authors');
+    }
+
+    public function publishers()
+    {
+       // return $this->belongsTo(Publisher::class, 'publisher_id');
+        return $this->belongsToMany(Publisher::class, 'book_publishers');
     }
 }

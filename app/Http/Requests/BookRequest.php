@@ -25,6 +25,15 @@ class BookRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => 'required|string|max:255',
+            'country_id' => 'required|exists:countries,id',
+            'authors' => 'required|array',
+            'authors.*' => 'exists:authors,id',
+            //'publishers' => 'required|exists:publishers,id',
+            'publishers' => 'required|array',
+            'publishers.*' => 'exists:publishers,id',
+            'published_at' => 'required|date',
+
             // 'name' => 'required|min:5|max:255'
         ];
     }
@@ -49,7 +58,15 @@ class BookRequest extends FormRequest
     public function messages()
     {
         return [
-            //
+            'country_id.required' => 'El campo país es obligatorio.',
+            'authors.required' => 'Debes seleccionar al menos un autor.',
+            'authors.*.exists' => 'Algunos autores seleccionados no existen.',
+            'title.required' => 'El campo título es obligatorio.',
+            'published_at.required' => 'El campo fecha de publicación es obligatorio.',
+            'publishers.required' => 'Debes seleccionar al menos un editorial.',
+            'publishers.*.exists' => 'Algunos editores seleccionados no existen.',
+            // Añade otros mensajes personalizados según las reglas definidas
         ];
     }
+
 }

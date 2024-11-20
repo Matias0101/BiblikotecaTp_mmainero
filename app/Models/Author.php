@@ -46,21 +46,18 @@ class Author extends Model
     // Relación con el usuario que creó el registro
     public function creator(): BelongsTo
     {
-
-
         return $this->belongsTo(User::class, 'created_by');
     }
 
-
-
     // Relación con el usuario que actualizó el registro
-
 
     public function updater(): BelongsTo
     {
-
-
         return $this->belongsTo(User::class, 'updated_by');
+    }
+    public function getFullNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
     }
 
 }

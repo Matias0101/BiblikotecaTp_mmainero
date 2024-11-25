@@ -76,4 +76,21 @@ class Book extends Model
        // return $this->belongsTo(Publisher::class, 'publisher_id');
         return $this->belongsToMany(Publisher::class, 'book_publishers');
     }
+    public function series()
+    {
+        return $this->belongsToMany(Serie::class, 'book_series');
+    }
+    public function subjects()
+    {
+        return $this->belongsToMany(Subject::class, 'book_subjects');
+    }
+    public function editions()
+    {
+        return $this->belongsToMany(Edition::class, 'book_editions');
+    }
+
+
+
 }
+
+

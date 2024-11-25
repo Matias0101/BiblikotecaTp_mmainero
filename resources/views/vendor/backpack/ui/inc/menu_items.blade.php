@@ -2,7 +2,7 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="la la-home nav-icon"></i>
         {{ trans('backpack::base.dashboard') }}</a></li>
 <!-- @includeWhen(class_exists(\Backpack\DevTools\DevToolsServiceProvider::class), 'backpack.devtools::buttons.sidebar_item') -->
-
+<li><x-backpack::menu-item title="Carga de Libros" icon="la la-book" :link="backpack_url('book')" /></li>
 
 <!-- Parametricas Dropdown -->
 <li class="nav-item dropdown">
@@ -21,7 +21,7 @@
         <li><x-backpack::menu-item title="Autores" icon="la la-pen-alt" :link="backpack_url('author')" /></li>
         <li><x-backpack::menu-item title="Editoriales" icon="la la-building" :link="backpack_url('publisher')" /></li>
 
-        <li><x-backpack::menu-item title="Libros" icon="la la-book" :link="backpack_url('book')" /></li>
+        
     
         <li><x-backpack::menu-item title="Prestamos de Libros" icon="la la-book" :link="backpack_url('book-loans')" /></li>
          

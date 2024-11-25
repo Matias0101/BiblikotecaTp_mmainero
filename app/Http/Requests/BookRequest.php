@@ -29,12 +29,14 @@ class BookRequest extends FormRequest
             'country_id' => 'required|exists:countries,id',
             'authors' => 'required|array',
             'authors.*' => 'exists:authors,id',
-            //'publishers' => 'required|exists:publishers,id',
             'publishers' => 'required|array',
             'publishers.*' => 'exists:publishers,id',
-            'published_at' => 'required|date',
-
-            // 'name' => 'required|min:5|max:255'
+            'series' => 'nullable|array',
+            'series.*' => 'exists:series,id',
+            'subjects' => 'nullable|array',
+            'subjects.*' => 'exists:subjects,id',
+            'editions' => 'nullable|array',
+            'editions.*' => 'exists:editions,id',
         ];
     }
 
